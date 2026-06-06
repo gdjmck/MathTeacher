@@ -1,0 +1,26 @@
+# Math Tutor - Python 依赖
+
+# 核心依赖（未来实现真实LLM调用时需要）
+openai>=1.0.0
+# anthropic>=0.18.0
+
+# 开发依赖
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# 代码质量
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
+
+# 数据处理
+pydantic>=2.0.0
+
+# 可视化（Milestone 2预留）
+# matplotlib>=3.5.0
+# numpy>=1.21.0
+
+# Web框架（Milestone 4预留）
+# fastapi>=0.100.0
+# uvicorn>=0.23.0
+# python-multipart>=0.0.6  # 用于文件上传
