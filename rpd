@@ -4,4 +4,5 @@ Milestone 1：纯算法逻辑实现，主要通过调用llm来给用户选择的
 Milestone 2: 算法上基于第一步的文字回答，判断是否需要添加绘图来辅助用户理解，绘图的实现可先预留用gpt image2或者matplotlib画图；
 Milestone 3：使用typescript + tailwindCSS实现简单的用户使用界面；
 Milestone 4: 接入python后端接口，支持用户的文字或图片输入；
+Milestone 5: 生成绘图增加gpt image2和llm通过matplotlib实现生图2种方式，并由agent根据问题进行技术路线选择；其中gpt image2使用llm相同的openai配置
 

@@ -19,14 +19,21 @@
 - [x] 识别6种可视化类型（几何、函数、坐标、统计、数轴、向量）
 - [x] 与解题器集成
 
-### Milestone 3: 前端界面 📋
-- [ ] TypeScript + TailwindCSS 实现
-- [ ] 用户交互界面设计
+### Milestone 3: 前端界面 ✅ (已完成)
+- [x] TypeScript + TailwindCSS 实现
+- [x] 用户交互界面设计
+- [x] 三种模式切换界面
+- [x] LaTeX 公式渲染（KaTeX）
+- [x] 可视化提示展示与图形区域占位
+- [x] 接入 Python 后端 API
 
-### Milestone 4: 后端集成 📋
-- [ ] Python 后端接口
-- [ ] 支持文字输入
-- [ ] 支持图片输入
+### Milestone 5: 绘图生成功能 ✅ (已完成)
+- [x] GPT Image 2图像生成支持
+- [x] Matplotlib代码生成支持
+- [x] 智能技术路线选择
+- [x] Fallback降级机制
+- [x] 后端API集成
+- [x] 完整测试覆盖
 
 ## 待明确问题
 
@@ -35,9 +42,11 @@
 - [ ] API密钥配置方式
 - [ ] 调用参数配置（temperature, max_tokens等）
 
-### 数据格式
-- [ ] 数学题目的输入格式（纯文本、LaTeX、MathML？）
-- [ ] 输出格式的具体要求
+### 数学公式格式
+- [x] 使用LaTeX格式输出公式
+- [x] 更新Prompt模板引导LLM使用LaTeX
+- [x] 创建公式提取、验证工具
+- [x] 提供前端渲染指导（KaTeX/MathJax）
 
 ### 3种模式的详细定义
 - [x] 思路提示：2-3个关键提示点，不直接给出完整解答
@@ -53,21 +62,41 @@
 ### 2026-06-06
 - 项目启动
 - 创建基础文档结构
-- **Milestone 1 完成**：
-  - 实现了核心解题逻辑 (`src/core/solver.py`)
-  - 创建了LLM客户端抽象层 (`src/core/llm_client.py`)
-    - 支持OpenAI、Anthropic、Mock三种客户端
-    - 使用工厂模式创建客户端
-  - 实现了三种解题模式的Prompt模板
-  - 创建了测试套件 (`tests/test_solver.py`)
-  - 创建了演示程序 (`demo.py`, `example.py`)
-  - 所有测试通过 ✓
-- **Milestone 2 完成**：
-  - 实现了可视化判断模块 (`src/core/visualization.py`)
-    - 基于关键词匹配的智能判断算法
-    - 支持6种可视化类型识别
-    - 提供判断提示信息（类型、描述、关键词）
-  - 集成到核心解题器中
-  - 创建了可视化测试套件 (`tests/test_visualization.py`)
-  - 创建了综合演示 (`milestone2_demo.py`)
-  - 所有测试通过 (8/8) ✓
+- **Milestone 1 完成**：核心解题逻辑
+  - 三种解题模式实现
+  - LLM客户端抽象层
+  - Prompt模板系统
+- **Milestone 2 完成**：可视化判断功能
+  - 6种可视化类型识别
+  - 关键词匹配算法
+  - 与解题器集成
+- **公式格式化改进完成**：LaTeX格式化
+  - 修改Prompt要求LaTeX输出
+  - 创建公式工具模块
+  - 前端渲染指导文档
+- **Milestone 3 完成**（另一agent实现）：前端界面
+  - React 19 + TypeScript 5.8 + TailwindCSS 3.4
+  - KaTeX公式渲染集成
+  - 三种模式切换界面
+  - 图片上传支持
+  - 响应式设计
+  - 与后端API集成
+- **Milestone 4 完成**（另一agent实现）：后端API
+  - FastAPI框架
+  - 文字和图片输入支持
+  - OCR文本提取（Tesseract/OpenAI）
+  - 完整的测试覆盖（4个测试通过）
+  - 自动API文档生成
+- **文档审查与更新完成**：
+  - 检查后端实现与文档对应
+  - 检查前端实现与文档对应
+  - 创建 MILESTONE3.md 和 MILESTONE4.md
+  - 更新项目进度文档
+- **Milestone 5 完成**：绘图生成功能
+  - GPT Image 2图像生成实现
+  - Matplotlib代码生成实现
+  - 智能技术路线选择器
+  - Fallback降级机制
+  - 后端API集成
+  - 完整测试覆盖（4/4通过）
+  - 创建 MILESTONE5.md 文档

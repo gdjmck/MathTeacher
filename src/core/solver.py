@@ -57,7 +57,21 @@ class PromptTemplate:
 - 使用准确的数学术语
 - 步骤清晰，逻辑严密
 - 根据学生水平调整讲解深度
-- 鼓励学生思考"""
+- 鼓励学生思考
+
+【重要】数学公式格式规范：
+- 所有数学公式必须使用LaTeX格式
+- 行内公式使用 $...$ 包裹，如：$x^2 + 2x + 1$
+- 独立公式使用 $$...$$ 包裹并独立成行
+- 常用LaTeX语法：
+  * 上标：x^2（$x^2$）
+  * 下标：a_n（$a_n$）
+  * 分数：\\frac{a}{b}（$\\frac{a}{b}$）
+  * 根号：\\sqrt{x}（$\\sqrt{x}$）
+  * 求和：\\sum_{i=1}^{n}（$\\sum_{i=1}^{n}$）
+  * 积分：\\int_{a}^{b}（$\\int_{a}^{b}$）
+  * 希腊字母：\\alpha, \\beta, \\theta等
+- 示例：方程 $2x^2 - 5x + 3 = 0$ 的解为 $x = \\frac{5 \\pm \\sqrt{25-24}}{4}$"""
 
     @staticmethod
     def get_hint_prompt(problem: MathProblem) -> str:

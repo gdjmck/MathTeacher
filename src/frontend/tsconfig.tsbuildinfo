@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/vite-env.d.ts","./src/components/mathcontent.tsx","./src/components/modeselector.tsx","./src/components/visualizationpanel.tsx","./src/lib/api.ts","./src/lib/math.tsx","./src/lib/mocksolver.ts"],"version":"5.8.3"}

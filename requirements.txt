@@ -20,7 +20,12 @@ pydantic>=2.0.0
 # matplotlib>=3.5.0
 # numpy>=1.21.0
 
-# Web框架（Milestone 4预留）
-# fastapi>=0.100.0
-# uvicorn>=0.23.0
-# python-multipart>=0.0.6  # 用于文件上传
+# Web框架（Milestone 4）
+fastapi>=0.115.0
+uvicorn>=0.30.0
+python-multipart>=0.0.9
+httpx>=0.27.0
+
+# 图片处理与OCR
+Pillow>=10.0.0
+pytesseract>=0.3.10

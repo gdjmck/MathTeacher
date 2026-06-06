@@ -178,50 +178,84 @@ class MockLLMClient(BaseLLMClient):
         if self.mock_response:
             return self.mock_response
 
-        # 根据prompt类型返回不同的模拟响应
+        # 检查是否是matplotlib代码生成请求
+        if "matplotlib" in user_prompt.lower() and "代码" in user_prompt:
+            return """```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+fig, ax = plt.subplots(figsize=(8, 6))
+
+x = np.linspace(-5, 5, 100)
+y = x**2
+
+ax.plot(x, y, 'b-', linewidth=2, label='y = x^2')
+ax.grid(True, alpha=0.3)
+ax.axhline(y=0, color='k', linewidth=0.5)
+ax.axvline(x=0, color='k', linewidth=0.5)
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_title('Function Graph')
+ax.legend()
+```"""
+
+        # 根据prompt类型返回不同的模拟响应（使用LaTeX格式）
         if "思路提示" in user_prompt:
             return """**解题思路提示：**
 
 1. 观察题目的数学结构，识别问题类型
-2. 回忆相关的公式和定理
+2. 回忆相关的公式和定理（如 $ax^2 + bx + c = 0$ 的求根公式）
 3. 考虑是否可以通过代数变形简化问题"""
 
-        elif "简洁完整" in user_prompt:
+        elif "简洁完整" in user_prompt or "简略" in user_prompt:
             return """**解题步骤：**
 
-1. 设定变量并列出已知条件
-2. 根据题意建立方程
-3. 化简方程并求解
-4. 验证答案的合理性
+1. **整理方程**：将方程整理为标准形式 $ax^2 + bx + c = 0$
+2. **应用求根公式**：
+   $$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$
+3. **代入计算**：代入系数值求解
+4. **验证答案**：将解代入原方程验证
 
-**答案：** x = 5"""
+**答案**：$x = 5$"""
 
         elif "详细讲解" in user_prompt:
             return """**详细解题过程：**
 
 **第一步：理解题意**
-首先我们需要仔细阅读题目，提取关键信息。
+首先我们需要仔细阅读题目，提取关键信息。设未知数为 $x$。
 
 **第二步：建立数学模型**
-根据题目条件，我们可以列出方程...
+根据题目条件，我们可以列出方程：
+$$2x + 5 = 15$$
+
 这里使用的是代数方程的基本原理。
 
 **第三步：求解过程**
-通过移项和合并同类项，我们可以得到...
-（详细的计算过程）
+移项得：
+$$2x = 15 - 5$$
+$$2x = 10$$
+
+两边同时除以 $2$：
+$$x = \\frac{10}{2} = 5$$
 
 **第四步：验证答案**
-将答案代入原方程验证...
+将 $x = 5$ 代入原方程：
+$$2 \\times 5 + 5 = 10 + 5 = 15$$ ✓
 
 **知识点总结：**
-1. 方程的建立
-2. 代数运算法则
-3. 解的验证方法
+1. 一元一次方程的求解方法
+2. 移项法则：$a = b \\Rightarrow a + c = b + c$
+3. 等式的性质：等式两边同时乘除同一个数（除数不为零）
 
 **易错提醒：**
-注意运算符号和运算顺序。"""
+- 注意移项时要变号
+- 注意运算顺序（先乘除后加减）
+- 验证答案时要代入原方程，不是化简后的方程"""
 
-        return "[模拟响应] 这是一个通用的数学问题解答。"
+        return "[模拟响应] 这是一个通用的数学问题解答。使用LaTeX格式：$x^2 + 1 = 0$"
 
 
 def create_llm_client(

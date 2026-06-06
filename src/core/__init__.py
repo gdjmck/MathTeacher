@@ -26,6 +26,14 @@ from .visualization import (
     check_visualization_need
 )
 
+from .plot_generator import (
+    PlotGenerator,
+    PlotMethod,
+    PlotResult,
+    PlotMethodSelector,
+    create_plot_generator
+)
+
 __all__ = [
     'MathSolver',
     'MathProblem',
@@ -42,4 +50,9 @@ __all__ = [
     'VisualizationHint',
     'VisualizationPlaceholder',
     'check_visualization_need',
+    'PlotGenerator',
+    'PlotMethod',
+    'PlotResult',
+    'PlotMethodSelector',
+    'create_plot_generator',
 ]
